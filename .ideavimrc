@@ -1,0 +1,73 @@
+"system map <esc> = cap/lock
+
+" 设置leader
+let mapleader=" "
+
+" 查找的时候每次输入都会不断查找
+set incsearch
+" 显示当前的模式
+set showmode
+set smartcase
+set keep-english-in-normal
+set scrolloff=3
+set ideajoin
+" vim 和 剪切版互通
+set clipboard+=unnamed
+
+" 插件模拟
+set surround
+set multiple-cursors
+
+" uhjk 上下左右
+noremap <C-u> u
+noremap u kzz
+noremap j jzz
+noremap k lzz
+noremap G Gzz
+noremap h hzz
+noremap L <Nop>
+noremap l <Nop>
+
+
+" 快速检索
+noremap U 5kzz
+noremap J 5jzz
+noremap K 5lzz
+noremap H 5hzz
+
+" cap/lock 自由切换 insert/normal
+noremap <Esc> a
+
+" 左右切换 tab
+noremap = gt
+noremap - gT
+
+noremap / :set hlsearch<CR>/
+noremap <Leader>/ :set nohlsearch<CR>
+
+
+" leader
+" 分开屏幕
+noremap <Leader>d :vsplit<CR>
+noremap <Leader>s :w<CR>:source ~/.ideavimrc<CR>
+noremap <Leader>e :e ~/.ideavimrc<CR>
+noremap <Leader>p :e ~/.zshrc<CR>
+noremap <Leader>q :wq<CR>
+
+
+" action
+noremap gr :action Git.ResolveConflicts<CR>
+noremap gb :action Annotate<CR>
+noremap gc :action ActivateCommitToolWindow<CR>
+noremap ga :action com.github.xiantang.airplugin.action.AirAttachToProcessAction<CR>
+noremap gs :action Stop<CR>
+noremap <C-j> :action QuickJavaDoc<CR>
+noremap <Leader>fs :action FileStructurePopup<CR>
+noremap ge :action GotoNextError<CR>
+noremap <Leader>r :action RenameElement<CR>
+noremap gu :action FindUsages<CR>
+noremap <Leader>h :action HideActiveWindow<CR>
+
+" insert mode
+" 插入模式撤回
+inoremap <C-u> <Esc>:action $Undo<CR>
