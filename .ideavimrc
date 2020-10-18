@@ -8,11 +8,23 @@ set incsearch
 " 显示当前的模式
 set showmode
 set smartcase
-set keep-english-in-normal
 set scrolloff=3
+set smartindent
 set ideajoin
 " vim 和 剪切版互通
 set clipboard+=unnamed
+" 开启输入法自动切换功能
+set keep-english-in-normal
+
+
+" 修改高光
+set highlightedyank
+set ideamarks
+set idearefactormode=keep
+
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+let g:highlightedyank_highlight_duration = "1000"
+
 
 " 插件模拟
 set surround
@@ -23,10 +35,10 @@ noremap <C-u> u
 noremap u kzz
 noremap j jzz
 noremap k lzz
-noremap G Gzz
 noremap h hzz
 noremap L <Nop>
 noremap l <Nop>
+noremap G Gzz
 
 
 " 快速检索
@@ -36,11 +48,10 @@ noremap K 5lzz
 noremap H 5hzz
 
 " cap/lock 自由切换 insert/normal
-noremap <Esc> a
+nmap <Esc> a
 
-" 左右切换 tab
-noremap = gt
-noremap - gT
+" better end
+noremap - $
 
 noremap / :set hlsearch<CR>/
 noremap <Leader>/ :set nohlsearch<CR>
@@ -53,21 +64,34 @@ noremap <Leader>s :w<CR>:source ~/.ideavimrc<CR>
 noremap <Leader>e :e ~/.ideavimrc<CR>
 noremap <Leader>p :e ~/.zshrc<CR>
 noremap <Leader>q :wq<CR>
+noremap <Leader>z :action ToggleZenMode<CR>
+nnoremap <Leader>nb :set relativenumber!<CR>
+
 
 
 " action
 noremap gr :action Git.ResolveConflicts<CR>
+" git blame
 noremap gb :action Annotate<CR>
 noremap gc :action ActivateCommitToolWindow<CR>
+" 自己的插件
 noremap ga :action com.github.xiantang.airplugin.action.AirAttachToProcessAction<CR>
 noremap gs :action Stop<CR>
+noremap gr :action Run<CR>
+
+" 文档
 noremap <C-j> :action QuickJavaDoc<CR>
 noremap <Leader>fs :action FileStructurePopup<CR>
 noremap ge :action GotoNextError<CR>
-noremap <Leader>r :action RenameElement<CR>
+noremap gr :action  Git.ResolveConflicts<CR>
 noremap gu :action FindUsages<CR>
 noremap <Leader>h :action HideActiveWindow<CR>
+noremap <Leader>al :actionlist<CR>
+noremap <Leader>c :action CollapseAllRegions<CR>
+noremap <Leader>r :action RenameElement<CR>
+noremap <Leader>o :action ExpandAllRegions<CR>
 
 " insert mode
 " 插入模式撤回
 inoremap <C-u> <Esc>:action $Undo<CR>
+
