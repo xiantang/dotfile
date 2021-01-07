@@ -20,6 +20,7 @@ set keep-english-in-normal
 " 修改高光
 set highlightedyank
 set ideamarks
+set argtextobj
 set idearefactormode=keep
 
 let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
@@ -31,21 +32,13 @@ set surround
 set multiple-cursors
 
 " uhjk 上下左右
-noremap <C-u> u
-noremap u kzz
-noremap j jzz
-noremap k lzz
-noremap h hzz
-noremap L <Nop>
-noremap l <Nop>
-noremap G Gzz
-
-
-" 快速检索
-noremap U 5kzz
+noremap K 5kzz
 noremap J 5jzz
-noremap K 5lzz
+noremap L 5lzz
+noremap 0 ^
 noremap H 5hzz
+
+
 
 " cap/lock 自由切换 insert/normal
 nmap <Esc> a
@@ -95,3 +88,6 @@ noremap <Leader>o :action ExpandAllRegions<CR>
 " 插入模式撤回
 inoremap <C-u> <Esc>:action $Undo<CR>
 
+
+noremap <Leader>[ :action Back<CR>
+noremap <Leader>] :action Forward<CR>
